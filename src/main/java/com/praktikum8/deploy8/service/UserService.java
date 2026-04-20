@@ -1,8 +1,40 @@
 package com.praktikum8.deploy8.service;
 
+import com.praktikum8.deploy8.model.User;
+import com.praktikum8.deploy8.repository.UserRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.UUID;
 
 @Service
 public class UserService {
+    private final UserRepository userRepository;
 
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+    public User AddUser(User request) {
+        request.setId(UUID.randomUUID().toString());
+        return userRepository.save(request);
+    }
+    public List<User> GetAllUser() {
+        return userRepository.findAll();
+    }
+    public User GetUserById(String id) {
+        return userRepository.findById(id).orElse(null);
+    }
+    public User UpdateUser(String id, User request) {
+        User existingUser = userRepository.findById(id).orElse(null);
+        if (existingUser != null) {
+            existingUser.setName(request.getName());
+            existingUser.setNim(request.getNim());
+            return userRepository.save(existingUser);
+        }
+        return null;
+
+    }
+    public void DeleteUser(String id) {
+        userRepository.deleteById(id);
+    }
 }
