@@ -5,3 +5,4 @@ Tampilan Web Sendiri :
 
 Docker image dan container setelah pull dan push :
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d8762697-d69c-45fe-86ab-3b611e0d1081" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c4c88659-91f6-4991-beb0-b72503d12eef" />
